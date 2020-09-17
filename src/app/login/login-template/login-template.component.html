@@ -1,1 +1,16 @@
-<po-page-login></po-page-login>
+<po-page-login
+    *ngIf="!showPageBlocked"
+    p-hide-remember-user
+    p-login-pattern="^[a-zA-Z]*$"
+    p-password-pattern="^(\d*)$"
+    p-product-name="POC Poui"
+    p-register-url="http://localhost:4200/login/signup"
+    [p-loading]="loading"
+    [p-password-errors]="passwordErrors"
+    [p-login-errors]="loginErrors"
+    [p-recovery]="passwordRecovery"
+    (p-login-change)="loginChange()"
+    (p-login-submit)="checkLogin($event)"
+    (p-password-change)="passwordChange()"
+>
+</po-page-login>
