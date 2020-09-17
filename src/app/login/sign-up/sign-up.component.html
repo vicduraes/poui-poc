@@ -1,0 +1,105 @@
+<po-page-default p-title="Registro">
+    <form [formGroup]="reactiveForm">
+        <div class="po-row">
+            <po-input
+                class="po-md-6"
+                formControlName="company"
+                p-clean
+                p-icon="po-icon-company"
+                p-label="Nome da empresa"
+            >
+            </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-input
+                class="po-md-6"
+                p-mask="99.999.999/9999-99"
+                formControlName="cnpj"
+                p-clean
+                p-icon="po-icon-company"
+                p-label="CNPJ"
+            >
+            </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-email
+                class="po-md-6"
+                formControlName="email"
+                p-label="Email"
+                p-clean
+            >
+            </po-email>
+        </div>
+
+        <div class="po-row">
+            <po-password
+                class="po-md-6"
+                name="password"
+                formControlName="password"
+                p-clean
+                p-error-pattern="A senha deve ter, no mínimo, 8 caracteres"
+                p-label="Senha"
+                p-minlength="8"
+            >
+            </po-password>
+        </div>
+
+        <div class="po-row">
+            <po-password
+                class="po-md-6"
+                name="confirmPassword"
+                formControlName="confirmPassword"
+                p-clean
+                p-error-pattern="A senha deve ter, no mínimo, 8 caracteres"
+                p-label="Confirmar senha"
+                p-minlength="8"
+            >
+            </po-password>
+        </div>
+
+        <div class="po-row button-sign-up">
+            <po-button
+                class="po-md-6"
+                p-label="Criar usuário"
+                [p-disabled]="!reactiveForm.valid"
+                (p-click)="saveForm()"
+            >
+            </po-button>
+        </div>
+    </form>
+
+    <po-modal
+        #reactiveFormData
+        p-title="Usuário criado com sucesso"
+        [p-primary-action]="modalPrimaryAction"
+    >
+        <div class="po-row">
+            <po-info
+                class="po-md-12"
+                p-label="Nome da empresa"
+                [p-value]="reactiveForm.controls.company.value"
+            >
+            </po-info>
+        </div>
+
+        <hr />
+
+        <div class="po-row">
+            <po-info
+                class="po-md-6"
+                p-label="CNPJ"
+                [p-value]="reactiveForm.controls.cnpj.value"
+            >
+            </po-info>
+
+            <po-info
+                class="po-md-6"
+                p-label="Email"
+                [p-value]="reactiveForm.controls.email.value"
+            >
+            </po-info>
+        </div>
+    </po-modal>
+</po-page-default>
