@@ -53,7 +53,7 @@ export class LoginTemplateComponent implements OnInit {
             this.loginErrors = []
 
             setTimeout(() => {
-                this.router.navigateByUrl('/login/signup')
+                this.router.navigateByUrl('/dashboard')
             }, 1000)
         } else {
             this.loading = false
